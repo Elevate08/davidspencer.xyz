@@ -31,6 +31,5 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          passphrase: ${{ secrets.PASSWORD }}
           source: "./public"
           target: "/var/www/davidspencer.xyz"
