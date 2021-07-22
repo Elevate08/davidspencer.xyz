@@ -8,3 +8,4 @@ draft: true
 - Docker
 - Website Files
 - GitHub Account
+- Linux Server
