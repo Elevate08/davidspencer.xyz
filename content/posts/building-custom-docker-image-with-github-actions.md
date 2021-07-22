@@ -9,3 +9,7 @@ draft: true
 - Website Files
 - GitHub Account
 - Linux Server
+
+
+### Description
+Using Dockerfile a Docker Image will be created and uploaded to Public Docker Hub Repo
