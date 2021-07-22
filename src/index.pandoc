@@ -1,7 +1,0 @@
-from: markdown
-to: html
-
-template: template.html
-standalone: true
-
-include-before-body: [header.html]
