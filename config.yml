@@ -3,14 +3,20 @@ languageCode: en-us
 title: David Spencer
 theme: PaperMod
 
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
 params:
   defaultTheme: auto
-  ShowReadingTime: false
+  ShowReadingTime: true
   ShowShareButtons: false
   ShowCodeCopyButtons: true
   ShowFullTextinRSS: true
   ShowBreadCrumbs: true
   ShowPostNavLinks: true
+  ShowToc: true
 
   assets:
     disableHLJS: true # to disable highlight.js
@@ -29,26 +35,31 @@ params:
     imageTitle: "David spencer" # optional
     imageWidth: 360 # custom size
     imageHeight: 360 # custom size
+
     buttons:
-      - name: Search
-        url: "/search"
-      - name: Posts
-        url: "/posts"
+      - name: posts
+        url: posts
 
   socialIcons:
+    - name: "email"
+      url: "mailto:david@davidspencer.xyz"
     - name: "github"
       url: "https://github.com/Elevate08"
     - name: "linkedin"
       url: "https://www.linkedin.com/in/davidjspencer/"
-
-  outputs:
-    home:
-      - HTML
-      - RSS
-      - JSON
 
   editPost:
       URL: "https://github.com/Elevate08/davidspencer.xyz/blob/master/content"
       Text: "Suggest Changes" # edit text
       appendFilePath: true # to append file path to Edit link
 
+menu:
+  main:
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 20
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 30
