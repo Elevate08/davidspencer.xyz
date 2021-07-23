@@ -75,7 +75,7 @@ podman container rm <container-name>
 
 We can now build our custom Image.
 
-There are a few benefits to this; however one point I'd like to make is that doing his will make it so that we don't have to mount our local files to the container every time.
+There are a few benefits to this; however one point I'd like to make is that doing this will make it so that we don't have to mount our local files to the container every time.
 
 In your project directory, "contaier-demo" we will create a file called Dockerfile.
 
