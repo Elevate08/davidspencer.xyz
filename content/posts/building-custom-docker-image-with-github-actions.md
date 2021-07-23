@@ -10,15 +10,19 @@ of a Docker Hub image with version numbers.
 
 You will need to have a few things in order before we can get started
 
-- GitHub Account
+- [GitHub Account](https://github.com)
 - [Docker Hub Account](https://hub.docker.com/)
-- [Podman](https://podman.io/getting-started/installation.html)
+- [Podman Installation](https://podman.io/getting-started/installation.html)
 
 ---
 
 ### Creating Website Files
 
 Create your project directory. For this tutorial I'll be using 'container-demo' for the project folder.
+
+This folder can be created wherever you prefer. Mine will be located at:
+
+```~/Projects/container-demo```
 
 In your terminal, navigate to this project folder.
 
