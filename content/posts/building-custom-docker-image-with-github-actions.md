@@ -8,7 +8,7 @@ author: David Spencer
 This post will explain the process I followed to achieve an automated deployment
 of a Docker Hub image with version numbers.
 
-You will need a few things in order before we can get started
+You will need to have a few things in order before we can get started
 
 - GitHub Account
 - [Docker Hub Account](https://hub.docker.com/)
@@ -18,7 +18,7 @@ You will need a few things in order before we can get started
 
 ### Creating Website Files
 
-Create your project directory. For this tutorial i'll be using 'container-demo' for the project folder.
+Create your project directory. For this tutorial I'll be using 'container-demo' for the project folder.
 
 In your terminal, navigate to this project folder.
 
@@ -42,7 +42,7 @@ Great, now we have our simple website that we're ready to use and Generate our v
 
 ### Running Container Locally
 
-Now that we have the website data we would like to use, we can add this to an existing Docker image like Nginx.
+Now that we have the website data we would like to use, we can add this to an existing Docker image like nginx.
 We will start by testing the website files on an nginx container to ensure functionality prior to building the image.
 
 If you're confident, you can skip this step and go to the next section {{ Building Image }}.
