@@ -43,7 +43,7 @@ Great, now we have our simple website that we're ready to use and Generate our v
 ### Running Container Locally
 
 Now that we have the website data we would like to use, we can add this to an existing Docker image like nginx.
-We will start by testing the website files on an nginx container to ensure functionality prior to building the image.
+We will start by testing the website files on a nginx container to ensure functionality prior to building the image.
 
 If you're confident, you can skip this step and go to the next section {{ Building Image }}.
 
@@ -71,7 +71,7 @@ podman container rm <container-name>
 
 We can now build our custom Image.
 
-There are a few benefits to this; however one point i'd like to make is that doing his will make it so that we don't have to mount our local files to the container every time.
+There are a few benefits to this; however one point I'd like to make is that doing his will make it so that we don't have to mount our local files to the container every time.
 
 In your project directory, "contaier-demo" we will create a file called Dockerfile.
 
@@ -254,7 +254,7 @@ Repeat the same process for DOCKER_HUB_ACCESS_TOKEN
 
 Before we conclude this journey, let's recap.
 
-We have created a simple Hello World! webpage, accessed this via an nginx container.
+We have created a simple Hello World! webpage, accessed this via a nginx container.
 We then built our own local image for testing.
 We have just finished preparing our repo and our workflow.
 Next we will make a small change to our repo, tag the commit and push to master.
