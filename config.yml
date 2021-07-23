@@ -42,12 +42,12 @@ params:
         url: posts
 
   socialIcons:
-    - name: "email"
-      url: "mailto:david@davidspencer.xyz"
-    - name: "github"
-      url: "https://github.com/Elevate08"
     - name: "linkedin"
       url: "https://www.linkedin.com/in/davidjspencer/"
+    - name: "github"
+      url: "https://github.com/Elevate08"
+    - name: "email"
+      url: "mailto:david@davidspencer.xyz"
     - name: "rss"
       url: "/index.xml"
 
