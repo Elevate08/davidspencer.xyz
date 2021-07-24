@@ -2,6 +2,7 @@ baseURL: https://davidspencer.xyz
 languageCode: en-us
 title: David Spencer
 theme: PaperMod
+env: production
 
 outputs:
   home:
