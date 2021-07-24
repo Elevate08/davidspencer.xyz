@@ -11,7 +11,7 @@ outputs:
 params:
   defaultTheme: auto
   ShowReadingTime: true
-  ShowShareButtons: false
+  ShowShareButtons: true
   ShowCodeCopyButtons: true
   ShowFullTextinRSS: true
   ShowBreadCrumbs: true
