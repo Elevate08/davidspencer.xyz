@@ -22,14 +22,14 @@ Create your project directory wherever you prefer. For this tutorial I'll be usi
 
 In your terminal, navigate to this project folder and create a content folder.
 
-```
+```bash
 cd ~/Projects/container-demo
 mkdir content
 ```
 
 Using your editor of choice, create an index.html file inside the content folder with the following content
 
-```
+```bash
 <html>
 Hello World!
 </html>
@@ -46,7 +46,7 @@ We will start by testing the website files on a nginx container to ensure functi
 
 If you're confident, you can skip this step and go to the next section [Building a Docker Image](#building-a-docker-image).
 
-```
+```bash
 podman run -d -p 8008:80 -v ./content:/usr/share/nginx/html:Z,ro nginx
 ```
 
@@ -57,9 +57,9 @@ Yours would most likely be http://localhost:8008 or replace localhost with the h
 
 After you have successfully accessed your Hello World! Website, you can stop and remove your container
 
-![Hello World!](/hello_world.png)
+![Hello World!](/hello_world.png#center)
 
-```
+```bash
 podman container list
 podman container stop <container-name>
 podman container rm <container-name>
@@ -75,20 +75,20 @@ There are a few benefits to this; however one point I'd like to make is that doi
 
 Add the following text to a new file ``` ~/Projects/container-demo/Dockerfile ```
 
-```
+```bash
 FROM nginx
 COPY content /usr/share/nginx/html
 ```
 
 With this file created, you can now run the following command to build and image locally.
 
-```
+```bash
 podman build -t container-demo .
 ```
 
 You should see container-demo in your images now
 
-```
+```bash
 podman image list container-demo
 
 REPOSITORY                TAG     IMAGE ID      CREATED        SIZE
@@ -97,7 +97,7 @@ localhost/container-demo  latest  02e3e1343eda  8 seconds ago  137 MB
 
 We can now create a container using this image to see our Hello World! Website
 
-```
+```bash
 podman run -d -p 8008:80 localhost/container-demo
 ```
 
@@ -105,7 +105,7 @@ Test the site using the same URL from earlier
 
 After a successful test, stop and remove the new container.
 
-```
+```bash
 podman container list
 podman container stop <container-name>
 podman container rm <container-name>
@@ -113,7 +113,7 @@ podman container rm <container-name>
 
 You can delete the image after you have removed the container.
 
-```
+```bash
 podman image rm <image id>
 ```
 
@@ -125,21 +125,21 @@ Ensure you are logged into GitHub
 
 Click New
 
-![New Repo](/github_new_repo.png "Click New")
+![New Repo](/github_new_repo.png "Click New"#center)
 
 Enter a name for the repo
 
-![Name Repo](/github_name_repo.png "Enter Name")
+![Name Repo](/github_name_repo.png "Enter Name"#center)
 
 Click "Create Repository" at the bottom
 
 Copy either the HTTPS or SSH URL Depending on how you use git
 
-![Repo URL](/github_repo_url.png "Copy Repo URL")
+![Repo URL](/github_repo_url.png "Copy Repo URL"#center)
 
 Back to your terminal, we'll push our existing content to GitHub
 
-```
+```bash
 cd ~/Projects/container-demo
 git init
 git add .
@@ -155,7 +155,7 @@ We are now ready to build out the GitHub Actions and really tie this whole thing
 
 ### Build GitHub Actions
 
-```
+```bash
 cd ~/Projects/container-demo
 mkdir -p .github/workflows
 ```
@@ -164,7 +164,7 @@ Add the following text to a new file,
 
 ``` ~/Projects/container-demo/.github/workflows/main.yml ```
 
-```
+```bash
 name: CI to Docker Hub
 
 on:
@@ -233,7 +233,7 @@ jobs:
 
 Let's push our changes to the repo now.
 
-```
+```bash
 git add .
 git commit -m "Adding GitHub Workflow"
 git push
@@ -251,15 +251,15 @@ We will also setup our GitHub Secrets.
 
 Once you have your token go to your Repo on GitHub.com
 
-![GitHub Repo Settings](/github_repo_settings.png)
+![GitHub Repo Settings](/github_repo_settings.png#center)
 
 Click on Secrets
-![Secrets](/github_secrets.png)
+![Secrets](/github_secrets.png#center)
 
 Click on New Repository Secrets
-![New Repository Secrets](/github_new_repository_secrets.png)
+![New Repository Secrets](/github_new_repository_secrets.png#center)
 
-![DOCKER_HUB_USERNAME](/github_docker_hub_username.png)
+![DOCKER_HUB_USERNAME](/github_docker_hub_username.png#center)
 
 Repeat the same process for DOCKER_HUB_ACCESS_TOKEN
 
@@ -269,14 +269,14 @@ Repeat the same process for DOCKER_HUB_ACCESS_TOKEN
 
 Open content/index.html in your editor and make a change
 
-```
+```bash
 <html>
 Hello World!
 v1.0.0
 </html>
 ```
 
-```
+```bash
 git add .
 git tag -a v1.0.0 -m "v1.0.0"
 git commit -m "releasing v1.0.0"
@@ -285,17 +285,17 @@ git push -u origin v1.0.0
 
 You can track the action status from the Action tab on your repo
 
-![GitHub Actions Status](/github_actions_status.png)
+![GitHub Actions Status](/github_actions_status.png#center)
 
 You should eventually see the image in your Docker Hub
 
-![Docker Hub Image Created](/docker_hub_image_creation.png)
+![Docker Hub Image Created](/docker_hub_image_creation.png#center)
 
 Lastly you can even see the tags on the image, v1.0.0 and latest
 
 The latest tag will always be the latest and you'll have a history of versions associated with the image as you make changes.
 
-![Docker Hub Image Tags](/docker_hub_image_tags.png)
+![Docker Hub Image Tags](/docker_hub_image_tags.png#center)
 
 ---
 

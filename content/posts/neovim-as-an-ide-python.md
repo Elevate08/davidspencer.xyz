@@ -19,7 +19,7 @@ In this post I'll demonstrate my setup of neovim for python development.
 All of the config files for neovim will be in our config directory.
 If any of the folders or files do not exist we will create them now.
 
-```
+```bash
 mkdir -p ~/.config/nvim/lua
 touch ~/.config/nvim/init.vim
 touch ~/.config/nvim/lua/{lua_config,lsp_config}.lua
@@ -27,7 +27,7 @@ touch ~/.config/nvim/lua/{lua_config,lsp_config}.lua
 
 Using neovim, we will edit the init.vim
 
-```
+```vim
 syntax on                       "syntax highlighting, see :help syntax
 filetype plugin indent on       "file type detection, see :help filetype
 set number                      "display line number
@@ -79,7 +79,7 @@ There are two plugins we will need
 
 To install these using vim-plug we will add the following section to our init.vim
 
-```
+```vim
 "vim-plug configuration, plugins will be installed in ~/.config/nvim/plugged
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged') 
 
@@ -92,7 +92,7 @@ call plug#end()
 
 Install plugins
 
-```
+```vim
 nvim
 :PlugInstall
 ```
@@ -116,7 +116,7 @@ The nvim-lspconfig repo has an exhaustive list of language server options. I rec
 
 For python, I use [pylsp](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#pylsp).
 
-```
+```bash
 pip3 -U setuptools pip
 pip3 install 'python-lsp-server[all]'
 ```
@@ -130,13 +130,13 @@ Earlier we created some files
 
 Lets edit lua_config.lua first. Add the following to the lua_config.lua file.
 
-```
+```lua
 require('lsp_config')
 ```
 
 Add the following to the lsp_config.lua file
 
-```
+```lua
 local lsp = require('lspconfig')
 local completion = require('completion')
 
@@ -153,7 +153,7 @@ The lsp_config.lua file contains a couple functions to make loading multiple lan
 
 If you want to add any additional language servers you can add a line to the bottom using the following template.
 
-```
+```lua
 lsp.<language_server>.setup{on_attach=custom_attach}
 ```
 
@@ -161,7 +161,7 @@ The final step will be to add a configuration to our init.vim
 
 Open ~/.config/nvim/init.vim and add the following lines.
 
-```
+```vim
 " neovim LSP Configuration
 lua require('lua_config')
 
@@ -182,4 +182,4 @@ Additionally, you should have auto-complete and linting enabled.
 
 You should be able to navigate between auto-complete options using Tab / Shift Tab. Or natively Ctrl+n or Ctrl+p.
 
-![neovim as ide for python with lsp](/nvim_python_ide.gif)
+![neovim as ide for python with lsp](/nvim_python_ide.gif#center)
