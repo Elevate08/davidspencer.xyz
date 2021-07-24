@@ -18,19 +18,14 @@ You will need to have a few things in order before we can get started
 
 ### Creating Website Files
 
-Create your project directory. For this tutorial I'll be using 'container-demo' for the project folder.
+Create your project directory wherever you prefer. For this tutorial I'll be using ```~/Projects/container-demo``` for the project folder.
 
-This folder can be created wherever you prefer. Mine will be located at:
+In your terminal, navigate to this project folder and create a content folder.
 
-```~/Projects/container-demo```
-
-In your terminal, navigate to this project folder.
-
-We will be storing all website files inside the content directory.
-
-```mkdir content```
-
-Let's create the index.html file now.
+```
+cd ~/Projects/container-demo
+mkdir content
+```
 
 Using your editor of choice, create an index.html file inside the content folder with the following content
 
@@ -49,7 +44,7 @@ Great, now we have our simple website that we're ready to use and Generate our v
 Now that we have the website data we would like to use, we can add this to an existing Docker image like nginx.
 We will start by testing the website files on a nginx container to ensure functionality prior to building the image.
 
-If you're confident, you can skip this step and go to the next section {{ Building Image }}.
+If you're confident, you can skip this step and go to the next section [Building a Docker Image](#building-a-docker-image).
 
 ```
 podman run -d -p 8008:80 -v ./content:/usr/share/nginx/html:Z,ro nginx
@@ -57,7 +52,8 @@ podman run -d -p 8008:80 -v ./content:/usr/share/nginx/html:Z,ro nginx
 
 At this point you should be able to navigate to the website.
 In my case the url is http://pod1.davidspencer.xyz:8008.
-However, yours would either be http://localhost:8008 or replace localhost with the hostname of your podman host.
+
+Yours would most likely be http://localhost:8008 or replace localhost with the hostname/ip of your podman host.
 
 After you have successfully accessed your Hello World! Website, you can stop and remove your container
 
@@ -77,7 +73,7 @@ We can now build our custom Image.
 
 There are a few benefits to this; however one point I'd like to make is that doing this will make it so that we don't have to mount our local files to the container every time.
 
-In your project directory, "container-demo" we will create a file called Dockerfile.
+Add the following text to a new file ``` ~/Projects/container-demo/Dockerfile ```
 
 ```
 FROM nginx
@@ -90,7 +86,7 @@ With this file created, you can now run the following command to build and image
 podman build -t container-demo .
 ```
 
-You should see the container in your images now
+You should see container-demo in your images now
 
 ```
 podman image list container-demo
@@ -99,7 +95,7 @@ REPOSITORY                TAG     IMAGE ID      CREATED        SIZE
 localhost/container-demo  latest  02e3e1343eda  8 seconds ago  137 MB
 ```
 
-We can now create a container off of this image to see our Hello World! Website
+We can now create a container using this image to see our Hello World! Website
 
 ```
 podman run -d -p 8008:80 localhost/container-demo
@@ -108,6 +104,18 @@ podman run -d -p 8008:80 localhost/container-demo
 Test the site using the same URL from earlier
 
 After a successful test, stop and remove the new container.
+
+```
+podman container list
+podman container stop <container-name>
+podman container rm <container-name>
+```
+
+You can delete the image after you have removed the container.
+
+```
+podman image rm <image id>
+```
 
 ---
 
@@ -129,9 +137,10 @@ Copy either the HTTPS or SSH URL Depending on how you use git
 
 ![Repo URL](/github_repo_url.png "Copy Repo URL")
 
-Back to your terminal, ensure your in your container-demo folder
+Back to your terminal, we'll push our existing content to GitHub
 
 ```
+cd ~/Projects/container-demo
 git init
 git add .
 git commit -m "Initial Upload"
@@ -139,7 +148,7 @@ git remote add origin <repo_url>
 git push -u origin master
 ```
 
-Now we should have our repo in GitHub with our tiny project.
+Now we should have our repo in GitHub with our project.
 We are now ready to build out the GitHub Actions and really tie this whole thing together.
 
 ---
@@ -147,11 +156,13 @@ We are now ready to build out the GitHub Actions and really tie this whole thing
 ### Build GitHub Actions
 
 ```
+cd ~/Projects/container-demo
 mkdir -p .github/workflows
-touch .github/workflows/main.yml
 ```
 
-Open the main.yml in your editor and add the following text
+Add the following text to a new file,
+
+``` ~/Projects/container-demo/.github/workflows/main.yml ```
 
 ```
 name: CI to Docker Hub
@@ -255,15 +266,6 @@ Repeat the same process for DOCKER_HUB_ACCESS_TOKEN
 ---
 
 ### Push image to Docker Hub
-
-Before we conclude this journey, let's recap.
-
-We have created a simple Hello World! webpage, accessed this via a nginx container.
-We then built our own local image for testing.
-We have just finished preparing our repo and our workflow.
-Next we will make a small change to our repo, tag the commit and push to master.
-This will kick off the GitHub Actions and if all goes as expected, we should see our image in our Docker Hub.
-It will have :latest and :v1.0.0 tags for convenient image / version control.
 
 Open content/index.html in your editor and make a change
 
