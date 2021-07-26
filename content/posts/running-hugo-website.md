@@ -1,7 +1,7 @@
 ---
 title: "Running Hugo Website"
 date: 2021-07-24T18:53:09-04:00
-draft: false
+draft: true
 tags: ['hugo', 'vps', 'website', 'blog', 'github actions']
 ---
 
