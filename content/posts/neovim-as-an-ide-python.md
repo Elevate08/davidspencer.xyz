@@ -3,6 +3,7 @@ title: Using Neovim as an for Python
 date: 2021-07-24
 tags: ['neovim','vim','python','ide','lsp']
 author: David Spencer
+draft: true
 ---
 
 In this post I'll demonstrate my setup of neovim for python development.

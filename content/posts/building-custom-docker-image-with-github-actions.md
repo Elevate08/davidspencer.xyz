@@ -125,17 +125,17 @@ Ensure you are logged into GitHub
 
 Click New
 
-![New Repo](/github_new_repo.png "Click New"#center)
+![New Repo](/github_new_repo.png#center)
 
 Enter a name for the repo
 
-![Name Repo](/github_name_repo.png "Enter Name"#center)
+![Name Repo](/github_name_repo.png#center)
 
 Click "Create Repository" at the bottom
 
 Copy either the HTTPS or SSH URL Depending on how you use git
 
-![Repo URL](/github_repo_url.png "Copy Repo URL"#center)
+![Repo URL](/github_repo_url.png#center)
 
 Back to your terminal, we'll push our existing content to GitHub
 

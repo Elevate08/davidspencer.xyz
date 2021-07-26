@@ -9,6 +9,7 @@ outputs:
     - HTML
     - RSS
     - JSON
+
 params:
   defaultTheme: auto
   ShowReadingTime: true
