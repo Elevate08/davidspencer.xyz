@@ -256,8 +256,73 @@ You can now watch the action run on GitHub and monitor your VPS for the website 
 
 ---
 
-### Running nginx webserver
+### Domain, SSL, and VPS Setup
 
 If you have just purchased your VPS you'll need to install nginx.
 
 [nginx install](https://nginx.org/en/linux_packages.html)
+
+
+
+You'll also want to ensure you configure DNS for your domain.
+
+| type | name | content |
+| ---- | ---- | ------- |
+| A | @ | vps_ipv4_address |
+
+For SSL you can find all Let's Encrypt client options [here](https://letsencrypt.org/docs/client-options/)
+
+I'd recommend [acme.sh](https://github.com/acmesh-official/acme.sh) since certbot has switched to snap as it's primary installation method.
+[get.acme.sh](https://github.com/acmesh-official/get.acme.sh)
+
+Generate DH Params
+
+```
+openssl dhparam -out /etc/nginx/ssl-dhparams.pem 2048
+```
+
+Create /etc/nginx/conf.d/domain-name.conf and add the following text. Be sure to modify lines 2,3,15,16,28,33,and 40.
+
+```
+server {
+    server_name  <domain-name> www.<domain-name>;
+    root         /var/www/<domain-name>/public;
+
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+        add_header Permissions-Policy interest-cohort=();
+    }
+
+
+    listen [::]:443 ssl ipv6only=on;
+    listen 443 ssl; 
+    ssl_certificate /path/to/acme/sh/certificate
+    ssl_certificate_key /path/to/acme/sh/key
+    ssl_session_cache shared:le_nginx_SSL:10m;
+    ssl_session_timeout 1440m;
+    ssl_session_tickets off;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_ciphers "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384";
+    ssl_dhparam /etc/nginx/ssl-dhparams.pem;
+}
+
+server {
+    if ($host = www.<domain-name>) {
+        return 301 https://$host$request_uri;
+    } 
+
+
+    if ($host = <domain-name)) {
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen       80;
+    listen       [::]:80;
+    server_name  <domain-name> www.<domain-name>;
+    return 404; 
+}
+```
