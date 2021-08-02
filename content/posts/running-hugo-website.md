@@ -1,6 +1,6 @@
 ---
 title: "Running Hugo Website"
-date: 2021-07-24T18:53:09-04:00
+date: 2021-08-01T21:27:19-04:00
 tags: ['hugo', 'vps', 'website', 'blog', 'github actions']
 ---
 
