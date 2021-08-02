@@ -1,7 +1,9 @@
 ---
 title: "Running Hugo Website"
 date: 2021-08-01T21:27:19-04:00
+author: David Spencer
 tags: ['hugo', 'vps', 'website', 'blog', 'github actions']
+categories: ['tutorial']
 ---
 
 In order to run a hugo webserver you will need a few things in order first.

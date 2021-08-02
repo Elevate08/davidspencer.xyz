@@ -1,7 +1,8 @@
 ---
-title: Using Neovim as an for Python
+title: Using Neovim as an IDE for Python
 date: 2021-07-24
 tags: ['neovim','vim','python','ide','lsp']
+categories: ['tutorial']
 author: David Spencer
 ---
 

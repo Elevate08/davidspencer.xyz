@@ -2,6 +2,7 @@
 title: "Building Custom Docker Image With Github Actions"
 date: 2021-07-21T20:37:51-04:00
 tags: ['docker','podman','nginx','github actions']
+categories: ['tutorial']
 author: David Spencer
 ---
 
