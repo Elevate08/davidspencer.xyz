@@ -1,7 +1,6 @@
 ---
 title: "Running Hugo Website"
 date: 2021-07-24T18:53:09-04:00
-draft: true
 tags: ['hugo', 'vps', 'website', 'blog', 'github actions']
 ---
 
@@ -23,7 +22,89 @@ If you would like me to write a post on these pre-requisites. Please let me know
 
 ---
 
-### Initial Setup - Development
+### Domain, VPS, and nginx Configuration
+
+Setup your A Record to point your domain name to your webserver
+
+| type | name | content |
+| ---- | ---- | ------- |
+| A | @ | vps_ipv4_address |
+
+[nginx install](https://nginx.org/en/linux_packages.html)
+
+Create simple nginx configuration file, /etc/nginx/conf.d/<domain>.conf
+
+```bash
+server {
+    server_name  <domain-name> www.<domain-name>;
+    root         /var/www/<domain-name>/public;
+
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+        add_header Permissions-Policy interest-cohort=();
+    }
+
+    listen       80;
+    listen       [::]:80;
+    return 404; 
+}
+```
+
+Create a temporary index.html in your website's root directory, /var/www/<domain>/public/index.html
+```bash
+<html>
+<p><domain></p>
+</html>
+```
+
+Start and Enable nginx
+```bash
+systemctl enable --now nginx.service
+```
+
+If necessary, allow HTTP and HTTPS through firewall
+```bash
+firewall-cmd --add-service=http --permanent
+firewall-cmd --add-service=https --permanent
+firewall-cmd reload
+```
+
+You should be able to verify access to your webserver over port 80 at this point.
+
+After a successful verification you can continue finishing the configuration.
+
+---
+
+### SSL with acme.sh
+
+For SSL you can find all Let's Encrypt client options [here](https://letsencrypt.org/docs/client-options/)
+
+I recommend [acme.sh](https://github.com/acmesh-official/acme.sh)
+
+Install acme.sh
+
+[get.acme.sh](https://github.com/acmesh-official/get.acme.sh)
+
+Issue cert for your domain
+```bash
+acme.sh --issue -d <domain> -w /var/lib/nginx/<domain>
+```
+
+Install certificate to an nginx directory
+```bash
+acme.sh --install-cert -d <domain> \
+--key-file       /etc/nginx/<domain>/key.pem  \
+--fullchain-file /etc/nginx/<domain>/cert.pem \
+--reloadcmd     "service nginx force-reload"
+```
+
+acme registers a cron job to run daily. This will ensure your certificate is always valid and will restart your webserver.
+
+---
+
+### Create Hugo Website
 
 [Hugo Installation](https://gohugo.io/getting-started/installing)
 
@@ -148,7 +229,7 @@ Click around and test out your new site.
 
 ---
 
-### Deploying Hugo Server using GitHub Actions
+### Deploying Hugo Website using GitHub Actions
 
 Up until now we have just been working locally. You should have a working development environment where you can access your site locally.
 
@@ -253,76 +334,3 @@ git push
 ```
 
 You can now watch the action run on GitHub and monitor your VPS for the website files to be copied over.
-
----
-
-### Domain, SSL, and VPS Setup
-
-If you have just purchased your VPS you'll need to install nginx.
-
-[nginx install](https://nginx.org/en/linux_packages.html)
-
-
-
-You'll also want to ensure you configure DNS for your domain.
-
-| type | name | content |
-| ---- | ---- | ------- |
-| A | @ | vps_ipv4_address |
-
-For SSL you can find all Let's Encrypt client options [here](https://letsencrypt.org/docs/client-options/)
-
-I'd recommend [acme.sh](https://github.com/acmesh-official/acme.sh) since certbot has switched to snap as it's primary installation method.
-[get.acme.sh](https://github.com/acmesh-official/get.acme.sh)
-
-Generate DH Params
-
-```
-openssl dhparam -out /etc/nginx/ssl-dhparams.pem 2048
-```
-
-Create /etc/nginx/conf.d/domain-name.conf and add the following text. Be sure to modify lines 2,3,15,16,28,33,and 40.
-
-```
-server {
-    server_name  <domain-name> www.<domain-name>;
-    root         /var/www/<domain-name>/public;
-
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ =404;
-        add_header Permissions-Policy interest-cohort=();
-    }
-
-
-    listen [::]:443 ssl ipv6only=on;
-    listen 443 ssl; 
-    ssl_certificate /path/to/acme/sh/certificate
-    ssl_certificate_key /path/to/acme/sh/key
-    ssl_session_cache shared:le_nginx_SSL:10m;
-    ssl_session_timeout 1440m;
-    ssl_session_tickets off;
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_prefer_server_ciphers off;
-    ssl_ciphers "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384";
-    ssl_dhparam /etc/nginx/ssl-dhparams.pem;
-}
-
-server {
-    if ($host = www.<domain-name>) {
-        return 301 https://$host$request_uri;
-    } 
-
-
-    if ($host = <domain-name)) {
-        return 301 https://$host$request_uri;
-    }
-
-
-    listen       80;
-    listen       [::]:80;
-    server_name  <domain-name> www.<domain-name>;
-    return 404; 
-}
-```
