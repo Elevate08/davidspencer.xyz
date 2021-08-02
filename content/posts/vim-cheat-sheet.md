@@ -13,3 +13,11 @@ VIM can be hard. Remembering all the neat shortcuts achieved by such an awesome 
 
 This won't be a cheat sheet that helps with the basics but rather an ever expanding post on shortcuts that I discover to help improve efficiency.
 
+---
+
+| command | description |
+| :-------: | :----------- |
+| gtd | go to definition, jump to function |
+| ^o / ^i | backward/forward a location |
+| ci" | change inside ", can change inside other characters as well |
+| "+yy | copy to + buffer, can change + to other buffers as well |
