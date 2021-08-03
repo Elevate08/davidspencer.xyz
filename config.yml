@@ -63,6 +63,10 @@ params:
     minMatchCharLength: 3
     keys: ["title", "content", "summary"]
 
+  analytics:
+    yandex:
+      SiteVerificationTag: "83600746"
+
 menu:
   main:
     - identifier: categories
