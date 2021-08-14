@@ -2,7 +2,6 @@
 title: "Vim Cheat Sheet"
 date: 2021-08-01T22:41:50-04:00
 author: David Spencer
-draft: true
 tags: ['neovim', 'vim']
 categories: ['cheat sheet']
 ---
