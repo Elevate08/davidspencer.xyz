@@ -40,7 +40,7 @@ Create a tunnel by clicking Add Tunnel
 
 Click Save Tunnel
 
-### Configure Interface
+### Configure Interface and Enable Tunnel
 
 Navigate to Interfaces > Assignments
 
@@ -53,6 +53,10 @@ On the Available Network Ports row, select the tun_wg0 interface and click add.
 - IPv4 Address: Choose an IPv4 Address and Subnet Mask
 
 Click Save
+
+Navigate to VPN > WireGuard
+
+Click Edit on your new tunnel and enable the tunnel
 
 ### Configure Firewall
 
@@ -174,3 +178,9 @@ You should see some routes created
 
 You should now be able to test connectivity by pinging your WireGuard tunnel interface IP Address
 This was set when the interface was assigned and you chose your WireGuard subnet [Configure Interface](#configure-interface)
+
+To ensure the interface is configured at startup after any reboots use the following command
+
+```
+systemctl enable wg-quick@wg0
+```

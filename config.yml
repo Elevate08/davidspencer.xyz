@@ -2,6 +2,9 @@ baseURL: https://davidspencer.xyz
 languageCode: en-us
 title: David Spencer
 theme: PaperMod
+disqusShortname: dspencer
+enableRobotsTXT: true
+
 
 outputs:
   home:
@@ -33,8 +36,8 @@ params:
   profileMode:
     enabled: true
     title: "David Spencer" # optional default will be site title
-    subtitle: "Random Thoughts and Tutorials"
-    dateFormate: "July 20, 2021"
+    subtitle: "Tech Tutorials"
+    dateFormat: "July 20, 2021"
     imageUrl: "/me.png" # optional
     imageTitle: "David spencer" # optional
     imageWidth: 360 # custom size
