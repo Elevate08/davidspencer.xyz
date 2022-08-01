@@ -118,7 +118,7 @@ The nvim-lspconfig repo has an exhaustive list of language server options. I rec
 For python, I use [pylsp](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#pylsp).
 
 ```bash
-pip3 -U setuptools pip
+pip3 install -U setuptools pip
 pip3 install 'python-lsp-server[all]'
 ```
 
@@ -144,7 +144,7 @@ local completion = require('completion')
 local custom_attach = function()
     completion.on_attach()
     -- Python specifically isn't setting omnifunc correctly, ftplugin conflict
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
 
 lsp.pylsp.setup{on_attach=custom_attach}
