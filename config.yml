@@ -5,7 +5,6 @@ theme: PaperMod
 disqusShortname: dspencer
 enableRobotsTXT: true
 
-
 outputs:
   home:
     - HTML
@@ -58,9 +57,9 @@ params:
       url: "/index.xml"
 
   editPost:
-      URL: "https://github.com/Elevate08/davidspencer.xyz/blob/master/content"
-      Text: "Suggest Changes" # edit text
-      appendFilePath: true # to append file path to Edit link
+    URL: "https://github.com/Elevate08/davidspencer.xyz/blob/master/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
 
   fuseOpts:
     minMatchCharLength: 3
