@@ -2,7 +2,6 @@ baseURL: https://davidspencer.xyz
 languageCode: en-us
 title: David Spencer
 theme: PaperMod
-disqusShortname: dspencer
 enableRobotsTXT: true
 
 outputs:
@@ -21,7 +20,7 @@ params:
   ShowBreadCrumbs: true
   ShowPostNavLinks: false
   ShowToc: true
-  comments: true
+  comments: false
 
   assets:
     disableHLJS: true
@@ -32,19 +31,10 @@ params:
     apple_touch_icon: "/apple-touch-icon.png"
     safari_pinned_tab: "/safari-pinned-tab.svg"
 
-  profileMode:
-    enabled: true
-    title: "David Spencer" # optional default will be site title
-    subtitle: "Tech Tutorials"
-    dateFormat: "July 20, 2021"
-    imageUrl: "/me.png" # optional
-    imageTitle: "David spencer" # optional
-    imageWidth: 360 # custom size
-    imageHeight: 360 # custom size
-
-    buttons:
-      - name: posts
-        url: posts
+  params:
+  homeInfoParams:
+    Title: David spencer
+    Content: Tech Tutorials
 
   socialIcons:
     - name: "linkedin"
