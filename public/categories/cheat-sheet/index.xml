@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheat Sheet on David Spencer</title>
+    <link>http://localhost:1313/categories/cheat-sheet/</link>
+    <description>Recent content in Cheat Sheet on David Spencer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Aug 2021 22:41:50 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/cheat-sheet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim Cheat Sheet</title>
+      <link>http://localhost:1313/posts/vim-cheat-sheet/</link>
+      <pubDate>Sun, 01 Aug 2021 22:41:50 -0400</pubDate>
+      <guid>http://localhost:1313/posts/vim-cheat-sheet/</guid>
+      <description>&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;&#xA;&lt;p&gt;VIM can be hard. Remembering all the neat shortcuts achieved by such an awesome tool is harder.&lt;/p&gt;&#xA;&lt;p&gt;This won&amp;rsquo;t be a cheat sheet that helps with the basics but rather an ever expanding post on shortcuts that I discover to help improve efficiency.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: center&#34;&gt;command&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: left&#34;&gt;description&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;gtd&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;go to definition, jump to function&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;^o / ^i&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;backward/forward a location&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;di&amp;quot;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;delete inside &amp;ldquo;, can delete inside other characters as well&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;ci&amp;rdquo;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;change inside &amp;ldquo;, can change inside other characters as well&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&amp;ldquo;+yy&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;copy to + buffer, can change + to other buffers as well&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;vap&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: left&#34;&gt;Select a paragraph, useful for easy increase/decrease of indent with &amp;lt; or &amp;gt;. Eliminates need to ctrl+v, move to select lines, and then use &amp;laquo; or &amp;raquo;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
+    </item>
+  </channel>
+</rss>

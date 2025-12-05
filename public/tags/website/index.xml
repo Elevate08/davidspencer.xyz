@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Website on David Spencer</title>
+    <link>http://localhost:1313/tags/website/</link>
+    <description>Recent content in Website on David Spencer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Aug 2021 21:27:19 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/website/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Hugo Website</title>
+      <link>http://localhost:1313/posts/running-hugo-website/</link>
+      <pubDate>Sun, 01 Aug 2021 21:27:19 -0400</pubDate>
+      <guid>http://localhost:1313/posts/running-hugo-website/</guid>
+      <description>&lt;p&gt;In order to run a hugo webserver you will need a few things in order first.&#xA;I will mention the requirements; however, I will not be going into detail here.&lt;/p&gt;&#xA;&lt;p&gt;If you would like me to write a post on these pre-requisites. Please let me know in the comments!&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Service&lt;/th&gt;&#xA;          &lt;th&gt;Provider&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Virtual Private Server&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://www.vultr.com/?ref=8910980&#34;&gt;Vultr&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Domain Name Registrar&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://www.epik.com/?affid=ve9na3ca0&#34;&gt;Epik&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;DNS&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://dash.cloudflare.com/login&#34;&gt;Cloudflare&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Git&lt;/td&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://github.com&#34;&gt;GitHub&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;domain-vps-and-nginx-configuration&#34;&gt;Domain, VPS, and nginx Configuration&lt;/h3&gt;&#xA;&lt;p&gt;Setup your A Record to point your domain name to your webserver&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

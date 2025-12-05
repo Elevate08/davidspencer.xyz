@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pfsense on David Spencer</title>
+    <link>http://localhost:1313/tags/pfsense/</link>
+    <description>Recent content in Pfsense on David Spencer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 Nov 2021 10:43:26 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/pfsense/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WireGuard Setup on Pfsense</title>
+      <link>http://localhost:1313/posts/wireguard-setup-on-pfsense/</link>
+      <pubDate>Sat, 13 Nov 2021 10:43:26 -0500</pubDate>
+      <guid>http://localhost:1313/posts/wireguard-setup-on-pfsense/</guid>
+      <description>&lt;p&gt;In this post I will explain how to setup WireGuard on your pfsense router. Your&#xA;pfsense router will be the WireGuard server and I&amp;rsquo;ll show a couple example client&#xA;configurations at the end.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;installing-wireguard-on-pfsense&#34;&gt;Installing WireGuard on pfsense&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;pfsense version 2.5.2&lt;/li&gt;&#xA;&lt;li&gt;WireGuard version 0.1.5&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Navigate to System &amp;gt; Package Manager &amp;gt; Available Packages&lt;/p&gt;&#xA;&lt;p&gt;Search for WireGuard and Install.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;configuring-wireguard-server&#34;&gt;Configuring WireGuard Server&lt;/h2&gt;&#xA;&lt;h3 id=&#34;create-tunnel&#34;&gt;Create Tunnel&lt;/h3&gt;&#xA;&lt;p&gt;Navigate to VPN &amp;gt; WireGuard&lt;/p&gt;&#xA;&lt;p&gt;Create a tunnel by clicking Add Tunnel&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
