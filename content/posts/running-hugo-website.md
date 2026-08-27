@@ -34,7 +34,7 @@ Setup your A Record to point your domain name to your webserver
 
 [nginx install](https://nginx.org/en/linux_packages.html)
 
-Create simple nginx configuration file, /etc/nginx/conf.d/<domain>.conf
+Create simple nginx configuration file, `/etc/nginx/conf.d/<domain>.conf`
 
 ```bash
 server {
@@ -54,7 +54,7 @@ server {
 }
 ```
 
-Create a temporary index.html in your website's root directory, /var/www/<domain>/public/index.html
+Create a temporary index.html in your website's root directory, `/var/www/<domain>/public/index.html`
 ```bash
 <html>
 <p><domain></p>

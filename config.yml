@@ -11,6 +11,9 @@ outputs:
     - JSON
 
 params:
+  author:
+    name: "David Spencer"
+    email: "david@ddemail.us"
   env: production
   defaultTheme: auto
   ShowReadingTime: true
@@ -31,7 +34,6 @@ params:
     apple_touch_icon: "/apple-touch-icon.png"
     safari_pinned_tab: "/safari-pinned-tab.svg"
 
-  params:
   homeInfoParams:
     Title: David spencer
     Content: Tech Tutorials
